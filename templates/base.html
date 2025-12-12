@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Tienda{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer con redes sociales -->
+    <footer>
+        <div class="redes">
+            <!-- WhatsApp -->
+            <a href="#" target="_blank" class="btn whatsapp" id="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="#" target="_blank" class="btn instagram" id="instagram-btn">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!-- Facebook -->
+            <a href="#" target="_blank" class="btn facebook" id="facebook-btn">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+        <p>© 2025 Mi Tienda Web</p>
+    </footer>
+
+    <script>
+        // Configura tus enlaces aquí (puedes dejarlos vacíos si no tienes cuentas)
+        const enlaces = {
+            whatsapp: "", // ej: "https://wa.me/1234567890"
+            instagram: "", // ej: "https://www.instagram.com/tu_usuario/"
+            facebook: "" // ej: "https://www.facebook.com/tu_usuario/"
+        };
+
+        // Función para activar enlaces solo si existen
+        if (enlaces.whatsapp) {
+            document.getElementById("whatsapp-btn").href = enlaces.whatsapp;
+        }
+        if (enlaces.instagram) {
+            document.getElementById("instagram-btn").href = enlaces.instagram;
+        }
+        if (enlaces.facebook) {
+            document.getElementById("facebook-btn").href = enlaces.facebook;
+        }
+    </script>
+
+</body>
+</html>

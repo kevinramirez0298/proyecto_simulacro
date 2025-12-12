@@ -1,0 +1,138 @@
+[
+    {
+        "order_id": 1,
+        "items": [
+            {
+                "id": 1,
+                "nombre": "Collar Laminado Oro",
+                "precio": 120000
+            }
+        ],
+        "total": 120000,
+        "estado": "Pendiente",
+        "fecha": "2025-02-10"
+    },
+    {
+        "order_id": 2,
+        "items": [
+            {
+                "id": 1,
+                "nombre": "Collar Laminado Oro",
+                "precio": 120000,
+                "descripcion": "Hermoso collar laminado en oro, resistente al agua y al desgaste.",
+                "imagen": "producto1.jpg"
+            },
+            {
+                "id": 3,
+                "nombre": "Anillo Premium",
+                "precio": 95000,
+                "descripcion": "Anillo laminado con diseño exclusivo y duradero.",
+                "imagen": "producto3.jpg"
+            },
+            {
+                "id": 4,
+                "nombre": "Aretes Brillantes",
+                "precio": 60000,
+                "descripcion": "Aretes laminados con acabado brillante y elegante.",
+                "imagen": "producto4.jpg"
+            }
+        ],
+        "total": 275000,
+        "estado": "Pendiente",
+        "fecha": "2025-12-12T14:45:54.239428Z"
+    },
+    {
+        "order_id": 3,
+        "items": [
+            {
+                "id": 1,
+                "nombre": "Collar Laminado Oro",
+                "precio": 120000,
+                "descripcion": "Hermoso collar laminado en oro, resistente al agua y al desgaste.",
+                "imagen": "producto1.jpg"
+            },
+            {
+                "id": 3,
+                "nombre": "Anillo Premium",
+                "precio": 95000,
+                "descripcion": "Anillo laminado con diseño exclusivo y duradero.",
+                "imagen": "producto3.jpg"
+            },
+            {
+                "id": 4,
+                "nombre": "Aretes Brillantes",
+                "precio": 60000,
+                "descripcion": "Aretes laminados con acabado brillante y elegante.",
+                "imagen": "producto4.jpg"
+            }
+        ],
+        "total": 275000,
+        "estado": "Pendiente",
+        "fecha": "2025-12-12T14:56:07.674810Z"
+    },
+    {
+        "order_id": 4,
+        "items": [
+            {
+                "id": 1,
+                "nombre": "Collar Laminado Oro",
+                "precio": 120000,
+                "descripcion": "Hermoso collar laminado en oro, resistente al agua y al desgaste.",
+                "imagen": "producto1.jpg"
+            },
+            {
+                "id": 2,
+                "nombre": "Pulsera Elegante",
+                "precio": 80000,
+                "descripcion": "Pulsera laminada de alta calidad, perfecta para cualquier ocasión.",
+                "imagen": "producto2.jpg"
+            },
+            {
+                "id": 3,
+                "nombre": "Anillo Premium",
+                "precio": 95000,
+                "descripcion": "Anillo laminado con diseño exclusivo y duradero.",
+                "imagen": "producto3.jpg"
+            }
+        ],
+        "total": 295000,
+        "estado": "Pendiente",
+        "fecha": "2025-12-12T15:09:43.436332Z"
+    },
+    {
+        "order_id": 5,
+        "items": [
+            {
+                "id": 1,
+                "nombre": "Collar Laminado Oro",
+                "precio_unitario": 120000,
+                "cantidad": 4,
+                "subtotal": 480000
+            },
+            {
+                "id": 2,
+                "nombre": "Pulsera Elegante",
+                "precio_unitario": 80000,
+                "cantidad": 1,
+                "subtotal": 80000
+            },
+            {
+                "id": 3,
+                "nombre": "Anillo Premium",
+                "precio_unitario": 95000,
+                "cantidad": 1,
+                "subtotal": 95000
+            },
+            {
+                "id": 4,
+                "nombre": "Aretes Brillantes",
+                "precio_unitario": 60000,
+                "cantidad": 2,
+                "subtotal": 120000
+            }
+        ],
+        "total": 775000,
+        "estado": "Pendiente",
+        "fecha": "2025-12-12T15:21:22.700755Z"
+    }
+]

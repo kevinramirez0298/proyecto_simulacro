@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+</head>
+<body>
+    <h1>Historial de Pedidos</h1>
+
+    {% if pedidos and pedidos|length > 0 %}
+        <ul>
+            {% for p in pedidos %}
+                <li>
+                    <strong>Pedido #{{ p.order_id }}</strong><br>
+                    Fecha: {{ p.fecha }}<br>
+                    Estado: {{ p.estado }}<br>
+                    Total: ${{ p.total }}<br>
+                    <br>
+                    <u>Productos:</u>
+                    <ul>
+                        {% for item in p["items"] %}
+                            <li>{{ item.nombre }} - ${{ item.precio }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay pedidos registrados.</p>
+    {% endif %}
+
+</body>
+</html>
+
+

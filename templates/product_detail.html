@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ producto.nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<header class="header-small">
+    <h2>{{ producto.nombre }}</h2>
+    <a href="/catalogo">⬅ Volver</a>
+</header>
+
+<div class="product-detail">
+
+    <img class="detail-img" src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+
+    <div class="detail-info">
+        <h2>{{ producto.nombre }}</h2>
+        <p>{{ producto.descripcion }}</p>
+        <p class="price">${{ producto.precio }}</p>
+
+        <a class="btn add" href="/agregar/{{ producto.id }}">Agregar al carrito</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+

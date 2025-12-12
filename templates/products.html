@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<header class="header-small">
+    <h2>Catálogo de Productos</h2>
+    <a href="/">🏠 Inicio</a>
+</header>
+
+<section class="product-list">
+
+    {% for producto in productos %}
+    <div class="product">
+        <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+        <h3>{{ producto.nombre }}</h3>
+        <p class="price">${{ producto.precio }}</p>
+        <a class="btn" href="/producto/{{ producto.id }}">Ver Detalles</a>
+    </div>
+    {% endfor %}
+
+</section>
+
+</body>
+</html>
+
+

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nombre": "Collar Laminado Oro",
+        "precio": 120000,
+        "descripcion": "Hermoso collar laminado en oro, resistente al agua y al desgaste.",
+        "imagen": "producto1.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Pulsera Elegante",
+        "precio": 80000,
+        "descripcion": "Pulsera laminada de alta calidad, perfecta para cualquier ocasión.",
+        "imagen": "producto2.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Anillo Premium",
+        "precio": 95000,
+        "descripcion": "Anillo laminado con diseño exclusivo y duradero.",
+        "imagen": "producto3.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Aretes Brillantes",
+        "precio": 60000,
+        "descripcion": "Aretes laminados con acabado brillante y elegante.",
+        "imagen": "producto4.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Reloj Laminado",
+        "precio": 250000,
+        "descripcion": "Reloj de pulsera laminado, resistente y con estilo único.",
+        "imagen": "producto5.jpg"
+    }
+]
