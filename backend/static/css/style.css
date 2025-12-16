@@ -1,0 +1,112 @@
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial;
+    margin: 0;
+}
+
+/* ================= TOP ================= */
+.top {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.barra {
+    width: 260px;
+    height: 18px;
+    background: #334155;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.vida {
+    height: 100%;
+    background: #22c55e;
+    transition: width 0.4s;
+}
+
+.enemigo {
+    background: #ef4444;
+}
+
+/* ================= HISTORIA ================= */
+.historia {
+    text-align: center;
+    margin: 40px;
+    font-size: 18px;
+    min-height: 120px;
+}
+
+/* ================= BOTONES ================= */
+.botones {
+    text-align: center;
+}
+
+button {
+    padding: 10px 18px;
+    margin: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ================= ANIMACIONES ================= */
+
+/* Daño */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
+.danio {
+    animation: shake 0.35s;
+}
+
+/* Flash rojo */
+@keyframes flashRed {
+    0% { background-color: #ef4444; }
+    100% { background-color: #22c55e; }
+}
+
+.flash-rojo {
+    animation: flashRed 0.4s;
+}
+
+/* Curación */
+@keyframes glowGreen {
+    0% { box-shadow: 0 0 0px #22c55e; }
+    50% { box-shadow: 0 0 18px #22c55e; }
+    100% { box-shadow: 0 0 0px #22c55e; }
+}
+
+.curar {
+    animation: glowGreen 0.6s;
+}
+
+/* Aparición */
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.aparecer {
+    animation: aparecer 0.5s;
+}
+
+/* Muerte */
+@keyframes morir {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.morir {
+    animation: morir 0.6s forwards;
+}
