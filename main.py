@@ -1,48 +1,122 @@
-from backend.game.jugador import Jugador
-from backend.game.criatura import Criatura
-from backend.game.juego import Juego
+import random
 
-def main():
-    juego = Juego()
+# ---------------------------
+# CLASES
+# ---------------------------
+
+class Jugador:
+    def __init__(self):
+        self.vida = 100
+        self.puntos = 0
+        self.ataque_base = 15
+        self.power_up = None
+
+    def atacar(self):
+        bonus = 10 if self.power_up == "espada" else 0
+        return random.randint(self.ataque_base, self.ataque_base + bonus)
+
+    def curar(self):
+        curacion = random.randint(15, 25)
+        self.vida = min(100, self.vida + curacion)
+        return curacion
+
+    def recibir_daño(self, daño):
+        if self.power_up == "escudo":
+            daño = daño // 2
+        self.vida -= daño
+        return daño
+
+
+class Criatura:
+    def __init__(self, nombre, vida):
+        self.nombre = nombre
+        self.vida = vida
+
+    def atacar(self):
+        return random.randint(8, 18)
+
+
+class CriaturaAmiga(Criatura):
+    def dar_powerup(self):
+        return random.choice(["espada", "escudo", "vida"])
+
+
+class CriaturaHostil(Criatura):
+    pass
+
+
+# ---------------------------
+# JUEGO
+# ---------------------------
+
+def juego():
+    jugador = Jugador()
+
+    criaturas = [
+        CriaturaAmiga("Hada del Bosque", 40),
+        CriaturaHostil("Lobo Sombrío", 50),
+        CriaturaHostil("Ogro Salvaje", 70)
+    ]
+
     print("🌲 Bienvenido al Bosque Encantado 🌲")
 
-    while juego.jugador_vivo():
-        criatura = juego.nueva_criatura()
-        print(f"\n⚠️ Aparece un {criatura.nombre} (Vida: {criatura.vida})")
+    while jugador.vida > 0:
+        criatura = random.choice(criaturas)
 
-        while criatura.esta_viva() and juego.jugador_vivo():
-            print(f"\nTu vida: {juego.jugador.vida} | Puntos: {juego.jugador.puntos}")
-            print("1. Atacar")
-            print("2. Huir")
-            print("3. Salir del juego")
+        print("\n-----------------------------")
+        print(f"👤 Vida: {jugador.vida} | ⭐ Puntos: {jugador.puntos}")
+        print(f"⚠️ Aparece: {criatura.nombre} (Vida: {criatura.vida})")
 
-            opcion = input("Elige una opción: ")
+        print("\n1. Atacar")
+        print("2. Tomar poción de vida")
+        print("3. Huir")
+        print("4. Salir")
 
-            if opcion == "1":
-                resultado = juego.atacar()
+        opcion = input("Elige una opción: ")
 
-                print(f"⚔️ Hiciste {resultado['dano_jugador']} de daño a {criatura.nombre}")
+        if opcion == "1":
+            daño = jugador.atacar()
+            criatura.vida -= daño
+            print(f"⚔️ Atacas y causas {daño} de daño")
 
-                if "criatura_derrotada" in resultado:
-                    print(f"🏆 Has derrotado a {criatura.nombre} y ganas 10 puntos")
-                else:
-                    print(f"💥 {criatura.nombre} te hace {resultado['dano_criatura']} de daño")
-                    print(f"Vida del jugador: {resultado['vida_jugador']}")
-                    print(f"Vida de {criatura.nombre}: {resultado['vida_criatura']}")
+            if criatura.vida <= 0:
+                print(f"🎉 Has derrotado a {criatura.nombre}")
+                jugador.puntos += 10
 
-            elif opcion == "2":
-                print("🏃 Huyes del combate")
-                break
+                if isinstance(criatura, CriaturaAmiga):
+                    power = criatura.dar_powerup()
+                    if power == "vida":
+                        curado = jugador.curar()
+                        print(f"❤️ Te curas {curado} puntos")
+                    else:
+                        jugador.power_up = power
+                        print(f"✨ Obtienes power-up: {power.upper()}")
+                continue
 
-            elif opcion == "3":
-                print("👋 Juego terminado")
-                return
+            daño_recibido = jugador.recibir_daño(criatura.atacar())
+            print(f"💥 Recibes {daño_recibido} de daño")
 
-            else:
-                print("❌ Opción inválida")
+        elif opcion == "2":
+            curado = jugador.curar()
+            print(f"❤️ Usas una poción y recuperas {curado} de vida")
 
-    print("\n💀 Has perdido toda tu vida")
-    print(f"Puntos finales: {juego.jugador.puntos}")
+        elif opcion == "3":
+            print("🏃 Huyes del combate...")
+            jugador.puntos -= 1
 
-if __name__ == "__main__":
-    main()
+        elif opcion == "4":
+            break
+
+        else:
+            print("❌ Opción inválida")
+
+    print("\n🎮 Juego terminado")
+    print(f"Vida final: {jugador.vida} | Puntos: {jugador.puntos}")
+
+
+# ---------------------------
+# INICIAR
+# ---------------------------
+
+juego()
+
